@@ -18,12 +18,19 @@ enum class TransExtData {
     SINGLE_STEP = (1 << 8)
 };
 
+#ifdef _WIN32
+#pragma warning( push )
+#pragma warning( disable : 4200)
+#endif // WIN
 struct arm_inst {
     unsigned int idx;
     unsigned int cond;
     TransExtData br;
     char component[0];
 };
+#ifdef _WIN32
+#pragma warning( pop )
+#endif // WIN
 
 struct generic_arm_inst {
     u32 Ra;

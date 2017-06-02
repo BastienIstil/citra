@@ -91,7 +91,7 @@ public:
         y -= other.y;
     }
     template <typename Q = T, class = typename std::enable_if<std::is_signed<Q>::value>::type>
-    Vec2<decltype(-T{})> operator-() const {
+    Vec2<decltype(-Q{})> operator-() const {
         return MakeVec(-x, -y);
     }
     Vec2<decltype(T{} * T{})> operator*(const Vec2& other) const {

@@ -36,7 +36,7 @@ public:
     }
 
     int lock_count;                   ///< Number of times the mutex has been acquired
-    u32 priority;                     ///< The priority of the mutex, used for priority inheritance.
+    s32 priority;                     ///< The priority of the mutex, used for priority inheritance.
     std::string name;                 ///< Name of mutex (optional)
     SharedPtr<Thread> holding_thread; ///< Thread that has acquired the mutex
 

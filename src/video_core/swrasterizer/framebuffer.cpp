@@ -351,6 +351,9 @@ u8 LogicOp(u8 src, u8 dest, FramebufferRegs::LogicOp op) {
 
     case FramebufferRegs::LogicOp::OrInverted:
         return ~src | dest;
+    default:
+        UNIMPLEMENTED();
+        return 0;
     }
 };
 

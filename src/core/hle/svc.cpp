@@ -514,7 +514,8 @@ static ResultCode CreateThread(Kernel::Handle* out_handle, u32 priority, u32 ent
 
     using Kernel::ResourceLimit;
     Kernel::SharedPtr<ResourceLimit>& resource_limit = Kernel::g_current_process->resource_limit;
-    if (resource_limit->GetMaxResourceValue(Kernel::ResourceTypes::PRIORITY) > priority) {
+    if (resource_limit->GetMaxResourceValue(Kernel::ResourceTypes::PRIORITY) >
+        static_cast<s32>(priority)) {
         return Kernel::ERR_NOT_AUTHORIZED;
     }
 

@@ -76,6 +76,7 @@ struct Regs {
             return 2;
         default:
             UNIMPLEMENTED();
+            return 0;
         }
     }
 

@@ -412,7 +412,7 @@ ResultVal<SharedPtr<Thread>> Thread::Create(std::string name, VAddr entry_point,
             return ERR_OUT_OF_MEMORY;
         }
 
-        u32 offset = linheap_memory->size();
+        size_t offset = linheap_memory->size();
 
         // Allocate some memory from the end of the linear heap for this region.
         linheap_memory->insert(linheap_memory->end(), Memory::PAGE_SIZE, 0);
@@ -522,7 +522,7 @@ void Thread::SetWaitSynchronizationOutput(s32 output) {
     context.cpu_registers[1] = output;
 }
 
-s32 Thread::GetWaitObjectIndex(WaitObject* object) const {
+s64 Thread::GetWaitObjectIndex(WaitObject* object) const {
     ASSERT_MSG(!wait_objects.empty(), "Thread is not waiting for anything");
     auto match = std::find(wait_objects.rbegin(), wait_objects.rend(), object);
     return std::distance(match, wait_objects.rend()) - 1;

@@ -124,7 +124,7 @@ void ARM_Dynarmic::SetCP15Register(CP15Register reg, u32 value) {
     interpreter_state->CP15[reg] = value;
 }
 
-void ARM_Dynarmic::AddTicks(u64 ticks) {
+void ARM_Dynarmic::AddTicks(size_t ticks) {
     down_count -= ticks;
     if (down_count < 0) {
         CoreTiming::Advance();
@@ -136,7 +136,7 @@ MICROPROFILE_DEFINE(ARM_Jit, "ARM JIT", "ARM JIT", MP_RGB(255, 64, 64));
 void ARM_Dynarmic::ExecuteInstructions(int num_instructions) {
     MICROPROFILE_SCOPE(ARM_Jit);
 
-    unsigned ticks_executed = jit->Run(static_cast<unsigned>(num_instructions));
+    size_t ticks_executed = jit->Run(static_cast<unsigned>(num_instructions));
 
     AddTicks(ticks_executed);
 }
