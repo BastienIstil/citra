@@ -90,8 +90,7 @@ std::u16string Path::AsU16Str() const {
         LOG_ERROR(Service_FS, "LowPathType cannot be converted to u16string!");
         return {};
     default:
-        LOG_ERROR(Service_FS, "Bad conversion type for LowPathType!");
-        return {};
+        UNREACHABLE();
     }
 }
 

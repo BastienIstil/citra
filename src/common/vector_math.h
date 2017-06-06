@@ -248,7 +248,7 @@ public:
         z -= other.z;
     }
     template <typename Q = T, class = typename std::enable_if<std::is_signed<Q>::value>::type>
-    Vec3<decltype(-T{})> operator-() const {
+    Vec3<decltype(-Q{})> operator-() const {
         return MakeVec(-x, -y, -z);
     }
     Vec3<decltype(T{} * T{})> operator*(const Vec3& other) const {
@@ -463,7 +463,7 @@ public:
         w -= other.w;
     }
     template <typename Q = T, class = typename std::enable_if<std::is_signed<Q>::value>::type>
-    Vec4<decltype(-T{})> operator-() const {
+    Vec4<decltype(-Q{})> operator-() const {
         return MakeVec(-x, -y, -z, -w);
     }
     Vec4<decltype(T{} * T{})> operator*(const Vec4& other) const {

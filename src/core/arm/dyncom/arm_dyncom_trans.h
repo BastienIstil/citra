@@ -18,7 +18,7 @@ enum class TransExtData {
     SINGLE_STEP = (1 << 8)
 };
 
-#ifdef _WIN32
+#ifdef _MSC_VER
 #pragma warning( push )
 #pragma warning( disable : 4200)
 #endif // WIN
@@ -28,7 +28,7 @@ struct arm_inst {
     TransExtData br;
     char component[0];
 };
-#ifdef _WIN32
+#ifdef _MSC_VER
 #pragma warning( pop )
 #endif // WIN
 

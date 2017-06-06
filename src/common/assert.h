@@ -41,7 +41,7 @@ __declspec(noinline, noreturn)
         }                                                                                          \
     while (0)
 
-#define UNREACHABLE() ASSERT_MSG(false, "Unreachable code!")
+#define UNREACHABLE() assert_noinline_call([] { LOG_CRITICAL(Debug, "Assertion Failed!""Unreachable code!"); })
 #define UNREACHABLE_MSG(...) ASSERT_MSG(false, __VA_ARGS__)
 
 #ifdef _DEBUG

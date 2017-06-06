@@ -259,7 +259,7 @@ struct FramebufferRegs {
         default:
             LOG_CRITICAL(HW_GPU, "Unknown depth format %u", format);
             UNIMPLEMENTED();
-            return -1;
+            return 0;
         }
     }
 
@@ -274,7 +274,7 @@ struct FramebufferRegs {
         default:
             LOG_CRITICAL(HW_GPU, "Unknown depth format %u", format);
             UNIMPLEMENTED();
-            return -1;
+            return 0;
         }
     }
 

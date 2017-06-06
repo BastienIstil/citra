@@ -142,7 +142,7 @@ public:
      * object in the list.
      * @param object Object to query the index of.
      */
-    s64 GetWaitObjectIndex(WaitObject* object) const;
+    size_t GetWaitObjectIndex(WaitObject* object) const;
 
     /**
      * Stops a thread, invalidating it from further use

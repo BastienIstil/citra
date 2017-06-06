@@ -27,7 +27,7 @@ public:
     u32 GetCP15Register(CP15Register reg) override;
     void SetCP15Register(CP15Register reg, u32 value) override;
 
-    void AddTicks(size_t ticks) override;
+    void AddTicks(u64 ticks) override;
 
     void SaveContext(ThreadContext& ctx) override;
     void LoadContext(const ThreadContext& ctx) override;

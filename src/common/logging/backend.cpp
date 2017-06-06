@@ -89,7 +89,6 @@ const char* GetLogClassName(Class log_class) {
     case Class::Count:
     default:
         UNREACHABLE();
-        return {};
     }
 }
 
@@ -107,7 +106,6 @@ const char* GetLevelName(Level log_level) {
     case Level::Count:
     default:
         UNREACHABLE();
-        return {};
     }
 #undef LVL
 }
