@@ -44,6 +44,13 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "Intel")
     add_definitions(-wd68 -wd186 -wd279 -wd327 -wd161 -wd3180)
 endif()
 
+#disable warning for external libraries
+if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+	set( CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} /W0" )
+else()
+	set( CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -w" )
+endif()
+
 # Endianness
 TEST_BIG_ENDIAN(IS_BIG_ENDIAN)
 if(IS_BIG_ENDIAN)
